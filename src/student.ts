@@ -80,7 +80,7 @@ export class Student extends Person {
   }
 
   passedAllExams(): boolean {
-    return this.enrolledSubjects.filter(s => !this.examPassed(s)).length !== 0;
+    return this.enrolledSubjects.filter(s => !this.examPassed(s)).length === 0;
   }
 
   examPassed(subject: Subject): boolean {

@@ -151,6 +151,9 @@ describe('student test', () => {
     expect(students[2].getMeanGrade(subjects[0])).toMatchInlineSnapshot(
       `1.6666666666666667`,
     );
+    expect(students[0].passedAllExams()).toMatchInlineSnapshot(`true`);
+    expect(students[1].passedAllExams()).toMatchInlineSnapshot(`false`);
+    expect(students[2].passedAllExams()).toMatchInlineSnapshot(`false`);
   });
 
   it('getHighestGrade functions', () => {
@@ -234,5 +237,37 @@ describe('general school test', () => {
     // adding new subject without a teacher
     school.addSubject(new Subject('Codding'));
     expect(school.allSubjectsHasTeachers()).toMatchInlineSnapshot(`false`);
+  });
+
+  it('Can test a subject', () => {
+    expect(
+      subjects[0].isStudentPassedTheExam(students[0]),
+    ).toMatchInlineSnapshot(`true`);
+    expect(
+      subjects[1].isStudentPassedTheExam(students[0]),
+    ).toMatchInlineSnapshot(`true`);
+    expect(
+      subjects[2].isStudentPassedTheExam(students[0]),
+    ).toMatchInlineSnapshot(`true`);
+
+    expect(
+      subjects[0].isStudentPassedTheExam(students[1]),
+    ).toMatchInlineSnapshot(`false`);
+    expect(
+      subjects[1].isStudentPassedTheExam(students[1]),
+    ).toMatchInlineSnapshot(`false`);
+    expect(
+      subjects[2].isStudentPassedTheExam(students[1]),
+    ).toMatchInlineSnapshot(`false`);
+
+    expect(
+      subjects[0].isStudentPassedTheExam(students[2]),
+    ).toMatchInlineSnapshot(`false`);
+    expect(
+      subjects[1].isStudentPassedTheExam(students[2]),
+    ).toMatchInlineSnapshot(`false`);
+    expect(
+      subjects[2].isStudentPassedTheExam(students[2]),
+    ).toMatchInlineSnapshot(`true`);
   });
 });
