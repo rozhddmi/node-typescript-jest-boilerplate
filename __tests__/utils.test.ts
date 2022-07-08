@@ -1,4 +1,4 @@
-import * as utils from '../utils';
+import * as utils from '../src';
 
 describe('utils', () => {
   describe('utils#getMessage()', () => {
