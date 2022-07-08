@@ -1,23 +1,37 @@
-# node-typescript-jest-boilerplate
+# Starting
 
-Boilerplate for a node server or library written in typescript, using jest as
-the test runner.
+Using yarn :
 
-## Usage
-
-Clone the boilerplate as a new project:
-
-```bash
-git clone https://github.com/bschlenk/node-typescript-jest-boilerplate.git <project>
+```
+yarn
 ```
 
-Update [package.json](package.json) as you see fit.
 
-## Modifications
+Using npm : 
+```
+npm install
+```
 
-If this is for a library only, then chances are you don't need nodemon. You can
-make the following changes to remove it:
+# Tasks 
+Implement all functions and constructors
+All test should pass (at least i hope, if they are not passing and you are sure that it is correct (mayby I implemented something wrongly) you need to convince me why)
+To run tests execute
 
-- Delete `nodemon.json`
-- Remove `watch` from `package.json` scripts
-- Remove `nodemon` from `package.json` devDependencies
+Using yarn : 
+
+```
+yarn test
+```
+
+
+Using npm : 
+```
+npm tun test
+```
+
+Do commits to your own branch as much as possible I want to see a progress
+
+You can debug separate tests using the extension https://marketplace.visualstudio.com/items?itemName=firsttris.vscode-jest-runner
+Read the file to see how to use it
+
+Good luck
