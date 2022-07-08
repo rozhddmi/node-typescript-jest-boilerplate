@@ -10,40 +10,39 @@ export class Subject {
 
 
   constructor(subjectName: string, teacher?: Teacher) {
-    // write a constructor
-    this.enrolledStudents = [];
-    this.subjectName = subjectName;
-    if (teacher) {
-      this.assignNewTeacher(teacher)
-    }
+    // implement the constructor
   }
 
+  /**
+   *  assign a teacher to a subject if he has not been assigned yet
+   *  do not forget to assign subject to a teacher
+   * @param teacher 
+   */
   assignNewTeacher(teacher: Teacher): void {
-    // assign a teacher to a subject
-    this.teacher = teacher;
-    teacher.assignToSubject(this);
+    throw new Error("Not implemented yet")
+
   }
 
+  /**
+   * Enroll student to a subject if he has not been enrolled yet, do not forget to assign student to a subject
+   * @param student 
+   */
   enrollStudent(student: Student): void {
-    if (!this.enrolledStudents.filter(s => s === student)[0]) {
-      // Enrole only if we dont have this 
-      this.enrolledStudents.push(student);
-      student.enrolToSubject(this);
-    }
+    throw new Error("Not implemented yet")
+
 
   }
 
+  /**
+   * check if a student passed the exam
+   * use meanGradeToPassExam and minAmountOfGradesToPassTheExam to evaluate 
+   * Don t forget to check if student has been enrolled to the subject
+   * @param student 
+   */
   isStudentPassedTheExam(student: Student): boolean {
-    // check if a student passed the exam
-    // use meanGradeToPassExam and minAmountOfGradesToPassTheExam to evaluate 
-    // Don t forget to check if student has been enrolled to the subject
-    if (this.enrolledStudents.filter(s => s === student)[0]) {
-      const meanGrade = student.getMeanGrade(this);
-      const gradeCount = student.getGradeCount(this);
 
-      return meanGrade > this.meanGradeToPassExam && gradeCount > this.minAmountOfGradesToPassTheExam
-    }
-    return false
+    throw new Error("Not implemented yet")
+
   }
 
 }

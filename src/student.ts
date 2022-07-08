@@ -12,104 +12,97 @@ export class Student extends Person {
     this.journal = new Map();
   }
 
+  /**
+   * Enroll student to the subject if he has not been yet enrolled
+   * @param subject 
+   */
   enrolToSubject(subject: Subject): void {
-    if (!this.enrolledSubjects.filter(s => s === subject)[0]) {
-      // Enroll only if we don't have this 
-      this.enrolledSubjects.push(subject);
-      subject.enrollStudent(this);
-    }
-
+    throw new Error("Not implemented yet")
   }
 
+  /**
+   * add a grade for a  subject 
+   * @param subject 
+   * @param mark 
+   */
   putGrade(subject: Subject, mark: IGrade): void {
-    // add a grade for a  subject 
-    if (this.enrolledSubjects.filter(s => s === subject).length > 0) {
-      const marks = this.journal.get(subject.subjectName) || [];
-      marks.push(mark)
-      this.journal.set(subject.subjectName, marks)
-    }
+    throw new Error("Not implemented yet")
   }
 
+  /**
+   * Get lowest value for grades 
+   *    if subject is not  defined then return lowest value of all grades
+   * @param subject 
+   */
   getLowestGrade(subject?: Subject): IGrade {
-    // Get lowest value for grades 
-    //    if subject is not  defined then return lowest value of all grades
-    if (subject) {
-      return Math.min(...(this.journal.get(subject.subjectName) || [])) as IGrade;
-    } else {
-      const grades = [...this.journal.values()].flat()
-      return Math.min(...grades) as IGrade;
-    }
+
+    throw new Error("Not implemented yet")
+
   }
 
+  /**
+   * Get highest value for grades 
+   *    if subject is not  defined then return highest value of all grades
+   * @param subject 
+   */
   getHighestGrade(subject?: Subject): IGrade {
-    // Get highest value for grades 
-    //    if subject is not  defined then return highest value of all grades
-    if (subject) {
-      return Math.max(...(this.journal.get(subject.subjectName) || [])) as IGrade;
-    } else {
-      const grades = [...this.journal.values()].flat()
-      return Math.max(...grades) as IGrade;
-    }
+
+    throw new Error("Not implemented yet")
+
   }
 
+  /**
+   * Get mean value for grades 
+   *    if subject is not  defined then return mean value of all grades
+   * @param subject 
+   */
   getMeanGrade(subject?: Subject): number {
-    // Get mean value for grades 
-    //    if subject is not  defined then return mean value of all grades
-    if (subject) {
-      const grades = this.journal.get(subject.subjectName) || []
-      return grades.reduce((sum, val) => sum + val, 0) / grades.length
-    } else {
-      const grades = [...this.journal.values()].flat()
-      return grades.reduce((sum, val) => sum + val, 0) / grades.length
-    }
+    throw new Error("Not implemented yet")
   }
 
+  /**
+   * Get counts of grades 
+   *    if subject is not  defined then return count of all grades
+   * @param subject 
+   */
   getGradeCount(subject?: Subject): number {
-    // Get counts of grades 
-    //    if subject is not  defined then return count of all grades
-    if (subject) {
-      if (!this.enrolledSubjects.filter(s => s === subject).length) {
-        return -1;
-      }
-      const grades = this.journal.get(subject.subjectName) || []
-      return grades.length
-    } else {
-      const grades = [...this.journal.values()].flat()
-      return grades.length
-    }
+
+    throw new Error("Not implemented yet")
+
   }
 
+  /**
+   * Check if student passed all his exams (refer to subject class to see the conditions)
+   * @returns 
+   */
   passedAllExams(): boolean {
-    return this.enrolledSubjects.filter(s => !this.examPassed(s)).length === 0;
+    throw new Error("Not implemented yet")
   }
 
+  /**
+   * Check if user passed the exam for subject
+   * @param subject 
+   * @returns 
+   */
   examPassed(subject: Subject): boolean {
-    // Check if the student passed the exam
-    return subject.isStudentPassedTheExam(this);
+    throw new Error("Not implemented yet")
   }
+
 
   /* should return a string in the form   
-    ____________________________________________________________________________________________________________
-    |  Name: xxxx                                                                                              |
-    |  Surname: xxx                                                                                            |
-    |  Subjects:                                                                                               |
-    |     ______________________________________________________________________________________________       |
-    |     |Subject name    | Teacher    |  Mean Grade   |  Min Grade  |   Max Grade    | Exam passed   |       |
-    |     |   XXXX         | Name SrName|    X          |     X       |      X         | "Yes" or "no" |       |
-    |     |    ....                                                                                    |       |
-    |     ----------------------------------------------------------------------------------------------       |
-    ------------------------------------------------------------------------------------------------------------ 
+  *  ____________________________________________________________________________________________________________
+  *  |  Name: xxxx                                                                                              |
+  *  |  Surname: xxx                                                                                            |
+  *  |  Subjects:                                                                                               |
+  *  |     ______________________________________________________________________________________________       |
+  *  |     |Subject name    | Teacher    |  Mean Grade   |  Min Grade  |   Max Grade    | Exam passed   |       |
+  *  |     |   XXXX         | Name SrName|    X          |     X       |      X         | "Yes" or "no" |       |
+  *  |     |    ....                                                                                    |       |
+  *  |     ----------------------------------------------------------------------------------------------       |
+  *  ------------------------------------------------------------------------------------------------------------ 
   */
   printStudentStats(): string {
-    const res = this.enrolledSubjects.map(s => `${s.subjectName} | ${s.teacher?.name} | ${s.teacher?.surname} | ${this.getHighestGrade(s)}|${this.getHighestGrade(s)}| ${this.examPassed(s) ? "Yes" : "No"}`).join("\n")
-
-    return `
-Name: ${this.name}
-Surname: ${this.surname}
-Subjects: 
-        | Subject name     | Teacher   |  Mean Grade   |  Min Grade  |   Max Grade    | Exam passed   |
-        ${res}`;
-
+    throw new Error("Not implemented yet")
   }
 
 }

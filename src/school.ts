@@ -4,88 +4,86 @@ import { Teacher } from "./teacher";
 
 
 export class School {
-  subjects: Subject[] = [];
-  teachers: Teacher[] = [];
-  students: Student[] = [];
+  subjects: Subject[];
+  teachers: Teacher[];
+  students: Student[];
 
+  constructor(subjects?: Subject[], teachers?: Teacher[], students?: Student[]) {
+    // implement the constructor
+  }
 
+  /**
+   * Should add a subject to the school 
+   * If teacher is defined then assign a subject to a teacher right away 
+   * @param subject 
+   * @param teacher 
+   */
   addSubject(subject: Subject, teacher?: Teacher): void {
-    // If teacher is defined the assign a subject to a teacher right away 
-    if (!this.subjects.filter(f => f === subject)[0]) {
-      this.subjects.push(subject)
-    }
-    if (teacher) {
-      subject.assignNewTeacher(teacher)
-    }
+    throw new Error("Not implemented yet")
+
   }
 
+  /**
+ * Should add a teacher to the school 
+ * If subject is defined then assign a subject to a teacher right away 
+ * @param subject 
+ * @param teacher 
+ */
   addTeacher(teacher: Teacher, subject?: Subject): void {
-    if (!this.teachers.filter(f => f === teacher)[0]) {
-      this.teachers.push(teacher)
-      if (subject) {
-        subject.assignNewTeacher(teacher)
-      }
-    }
+    throw new Error("Not implemented yet")
   }
 
+  /**
+   * Should assign a teacher to a subject and subject to a teacher 
+   * Do not forget to add teacher or subject to the school if they are not there yet
+   * @param teacher 
+   * @param subject 
+   */
   assignTeacherToASubject(teacher: Teacher, subject: Subject): void {
-    if (!this.subjects.filter(f => f === subject)[0]) {
-      this.subjects.push(subject)
-    }
-    subject.assignNewTeacher(teacher)
-
+    throw new Error("Not implemented yet")
   }
 
+
+  /**
+   * Should add student to a school do not forget to test if student is already there
+   * if subjects are defined enroll studenbt to these subjects right away (do not forget to check if subjects are already in school)
+   * @param student 
+   * @param subjects 
+   */
   addStudent(student: Student, subjects?: Array<Subject>): void {
-    if (!this.students.filter(f => f === student)[0]) {
-      this.students.push(student)
-      if (subjects) {
-        subjects.forEach(s => s.enrollStudent(student))
-      }
-    }
+    throw new Error("Not implemented yet")
+
   }
 
+  /**
+   * Return a best school student based on mean grade
+   *  if subject is defined then  return a student whit highest Mean grade for a subject
+   *  if not defined then return a student with highest mean grade across all subjects
+   * @param subject 
+   * @returns 
+   */
   getBestStudent(subject?: Subject): Student {
-    // if subject is defined then  return a student whit highest Mean grade for a subject
-    // if not defined then return a student with highest mean grade across all subjects
-    const sorted = [...this.students]
-    sorted.sort((s1, s2) => {
-      const s1grade = s1.getMeanGrade(subject)
-      const s2grade = s2.getMeanGrade(subject)
-      if (s1grade > s2grade) {
-        return -1
-      } else if (s2grade > s1grade) {
-        return 1
-      }
-      return 0
-
-    })
-    return sorted[0]
-
+    throw new Error("Not implemented yet")
   }
 
+  /**
+   * Get a meanest teacher in the school (the teacher who put lowest mean grade)
+   * if subject is defined then  return a teacher whit lowest Mean grade for a subject
+   * if not defined then return a teacher with lowest mean grade across all his subjects
+   * @param subject 
+   * @returns 
+   */
   getMeanestTeacher(subject?: Subject): Teacher {
-    // if subject is defined then  return a teacher whit lowest Mean grade for a subject
-    // if not defined then return a teacher with lowest mean grade across all his subjects
-    const sorted = [...this.teachers]
-
-    sorted.sort((t1, t2) => {
-      const t1MeanGrade = t1.getMeanGrade(subject);
-      const t2MeanGrade = t2.getMeanGrade(subject);
-      if (t1MeanGrade > t2MeanGrade) {
-        return -1
-      } else if (t2MeanGrade > t1MeanGrade) {
-        return 1
-      }
-      return 0
-    })
-    return sorted[0]
+    throw new Error("Not implemented yet")
 
   }
 
+  /**
+   * Test if all subjects has teachers 
+   * @returns true if yes and false if no
+   */
   allSubjectsHasTeachers(): boolean {
-    // Test if all subjects has teachers 
-    return this.subjects.filter(s => !s.teacher).length === 0
+    throw new Error("Not implemented yet")
   }
 
   /**
@@ -95,7 +93,7 @@ export class School {
    *  Subject Name meanGrade XXX
    *  */
   printTeacher(teacher?: Teacher): string {
-    return (teacher ? [teacher] : this.teachers).map(t => t.printTeacherStat()).join("\n")
+    throw new Error("Not implemented yet")
   }
 
   /**
@@ -105,13 +103,15 @@ export class School {
    *  Subject Name meanGrade XXX
    *  */
   printStudent(student?: Student): string {
-    return (student ? [student] : this.students).map(t => t.printStudentStats()).join("\n")
+    throw new Error("Not implemented yet")
 
   }
 
-  printDiploma(): string {
-    return this.students.filter(s => s.passedAllExams()).map(s => s.printStudentStats()).join("\n")
-    // print stats for all students who passed their exams
+  /**
+   * print stats for all students who passed their exams
+   */
+  printDiplomas(): string {
+    throw new Error("Not implemented yet")
   }
 
 }
